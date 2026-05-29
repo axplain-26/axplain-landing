@@ -1,26 +1,254 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS
+   브랜드 블루: #004AAD (AXPlain 로고 코발트 블루)
+   인디고/퍼플 사용 금지
+═══════════════════════════════════════════════ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* ── Animations ── */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
   }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+  --animate-marquee:         marquee 28s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 28s linear infinite;
+
+  /* ── Brand Color Palette ── */
+  /* 배경 — 짙은 네이비 (#0A0E1A 계열, 청색감 유지) */
+  --color-ax-bg:       #0A0E1A;
+  --color-ax-surface:  #11162A;
+  --color-ax-surface-2:#161B30;
+  --color-ax-surface-3:#1E2537;
+
+  /* 브랜드 블루 — 로고 #004AAD 기준 단일 톤 */
+  --color-ax-primary:  #004AAD;   /* 로고 블루 — 메인 포인트 */
+  --color-ax-hover:    #1E6FE0;   /* 호버 / 강조 */
+  --color-ax-accent:   #3B8EF5;   /* 밝은 액센트 */
+  --color-ax-deep:     #003A8C;   /* 딥 톤 — 배경 깊이감 */
+  --color-ax-blue:     #3B8EF5;   /* alias — ax-accent 와 동일, 유틸리티용 */
+
+  /* 텍스트 */
+  --color-ax-text:     #F5F7FA;   /* 헤드라인 */
+  --color-ax-muted:    #C7CEDB;   /* 본문 */
+  --color-ax-subtle:   #7C879B;   /* 보조 / placeholder */
+
+  /* ── shadcn 호환 레이어 (항상 다크) ── */
+  --color-background:           #0A0E1A;
+  --color-foreground:           #F5F7FA;
+  --color-card:                 #11162A;
+  --color-card-foreground:      #F5F7FA;
+  --color-popover:              #11162A;
+  --color-popover-foreground:   #F5F7FA;
+  --color-primary:              #004AAD;
+  --color-primary-foreground:   #ffffff;
+  --color-secondary:            #161B30;
+  --color-secondary-foreground: #C7CEDB;
+  --color-muted:                #1E2537;
+  --color-muted-foreground:     #7C879B;
+  --color-accent:               #1E2537;
+  --color-accent-foreground:    #F5F7FA;
+  --color-destructive:          #ef4444;
+  --color-border:               rgba(255, 255, 255, 0.08);
+  --color-input:                rgba(255, 255, 255, 0.08);
+  --color-ring:                 #1E6FE0;
+
+  /* ── Typography ── */
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  /* ── Border Radius ── */
+  --radius-sm:  0.5rem;
+  --radius-md:  0.75rem;
+  --radius-lg:  1rem;
+  --radius-xl:  1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ═══════════════════════════════════════════════
+   CSS 변수 — @theme 에서 생성 안 되는 그라데이션 등
+═══════════════════════════════════════════════ */
+:root {
+  /* shadcn 호환 */
+  --background:           #0A0E1A;
+  --foreground:           #F5F7FA;
+  --card:                 #11162A;
+  --card-foreground:      #F5F7FA;
+  --popover:              #11162A;
+  --popover-foreground:   #F5F7FA;
+  --primary:              #004AAD;
+  --primary-foreground:   #ffffff;
+  --secondary:            #161B30;
+  --secondary-foreground: #C7CEDB;
+  --muted:                #1E2537;
+  --muted-foreground:     #7C879B;
+  --accent:               #1E2537;
+  --accent-foreground:    #F5F7FA;
+  --destructive:          #ef4444;
+  --border:               rgba(255, 255, 255, 0.08);
+  --input:                rgba(255, 255, 255, 0.08);
+  --ring:                 #1E6FE0;
+  --radius:               0.75rem;
+
+  /* ── 브랜드 그라데이션 — 블루 단일 계열 ── */
+  /* 강조 그라데이션: 딥→프라이머리→호버 */
+  --gradient-primary:       linear-gradient(135deg, #003A8C, #004AAD, #1E6FE0);
+  --gradient-primary-hover: linear-gradient(135deg, #004AAD, #1E6FE0, #3B8EF5);
+
+  /* 텍스트 하이라이트: 호버→액센트 */
+  --gradient-text:          linear-gradient(135deg, #1E6FE0 0%, #3B8EF5 100%);
+
+  /* 카드 보더 그라데이션 */
+  --gradient-card-border:   linear-gradient(135deg,
+      rgba(0, 74, 173, 0.55),
+      rgba(30, 111, 224, 0.35));
+
+  /* 글로우 blob (낮은 투명도 blur 광원) */
+  --glow-primary:   rgba(0, 74, 173, 0.25);
+  --glow-hover:     rgba(30, 111, 224, 0.18);
+  --glow-accent:    rgba(59, 142, 245, 0.12);
+
+  /* 히어로 배경 */
+  --hero-bg:
+    radial-gradient(ellipse 100% 60% at 50% -10%, rgba(0, 74, 173, 0.22), transparent),
+    radial-gradient(ellipse 55%  45% at 80%  70%, rgba(30, 111, 224, 0.1), transparent),
+    #0A0E1A;
+}
+
+/* ═══════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════ */
+@layer base {
+  *, *::before, *::after {
+    border-color: var(--border);
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar       { width: 5px; }
+  ::-webkit-scrollbar-track { background: #0A0E1A; }
+  ::-webkit-scrollbar-thumb { background: #004AAD; border-radius: 3px; }
+}
+
+/* ═══════════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════════ */
+@layer utilities {
+  /* 그라데이션 텍스트 — 호버→액센트 블루 */
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 그라데이션 텍스트 — 딥→프라이머리→호버 풀 */
+  .text-gradient-full {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 글래스모피즘 카드 */
+  .glass {
+    background: rgba(17, 22, 42, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-surface {
+    background: rgba(22, 27, 48, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* 그라데이션 보더 (pseudo-element) */
+  .border-gradient {
+    position: relative;
+  }
+  .border-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: var(--gradient-card-border);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* 섹션 레이아웃 */
+  .section-container {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  /* 글로우 버튼 — 프라이머리 블루 기반 */
+  .btn-glow {
+    background: var(--gradient-primary);
+    box-shadow: 0 0 24px rgba(0, 74, 173, 0.45);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  .btn-glow:hover {
+    box-shadow: 0 0 40px rgba(30, 111, 224, 0.55);
+    transform: translateY(-1px);
+  }
+
+  /* 노이즈 텍스처 오버레이 */
+  .noise {
+    position: relative;
+  }
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
+  }
 }
