@@ -78,6 +78,7 @@ export default function BookDemoPage() {
   const [form, setForm] = useState<FormData>(INITIAL);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [isPending, startTransition] = useTransition();
 
   const set = (key: keyof FormData) => (
@@ -106,12 +107,19 @@ export default function BookDemoPage() {
     e.preventDefault();
     if (!validate()) return;
     startTransition(async () => {
-      // TODO: 실제 폼 전송 API(이메일/CRM/캘린더 연동) 연결
       // TODO: Calendly iframe 임베드 대안 — 폼 대신 아래 주석 블록을 사용:
       // <iframe src="https://calendly.com/your-link" width="100%" height="700" frameBorder="0" />
-      console.log("Demo request:", form);
-      await new Promise((r) => setTimeout(r, 1200)); // mock delay
-      setSubmitted(true);
+      try {
+        const res = await fetch("/api/demo", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        });
+        if (!res.ok) throw new Error("Failed to send");
+        setSubmitted(true);
+      } catch {
+        setSubmitError(true);
+      }
     });
   };
 
@@ -353,6 +361,11 @@ export default function BookDemoPage() {
                       "데모 신청"
                     )}
                   </button>
+                  {submitError && (
+                    <p className="text-xs text-red-400 text-center" role="alert">
+                      전송에 실패했습니다. 잠시 후 다시 시도해 주세요.
+                    </p>
+                  )}
                 </form>
               )}
             </div>

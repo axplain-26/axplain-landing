@@ -38,7 +38,7 @@ export const hero = {
 };
 
 export const trustBanner = {
-  headline: "국내 유일 표절검사, 디텍트 GPT 기술을 보유한 AXPlain과 함께합니다",
+  headline: "국내 유일 표절검사, 디텍트 GPT 기술을 보유한 (주)무하유와 함께합니다",
   description: "카피킬러 논문 DB 연동 · KIPRIS · WIPO · USPTO · EPO · JPO 특허 DB 통합",
   stats: [
     { value: "100억+", label: "논문 건수" },
