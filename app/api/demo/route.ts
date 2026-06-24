@@ -3,7 +3,7 @@ import { Resend } from "resend";
 
 export const dynamic = "force-dynamic";
 
-const RECIPIENTS = ["service@axplain.ai", "yjchoi@axplain.ai"];
+const RECIPIENTS = ["service@axplain.ai"];
 
 export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
