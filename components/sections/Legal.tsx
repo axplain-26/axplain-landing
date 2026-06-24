@@ -418,7 +418,7 @@ export default function Legal() {
 
           <p className="text-center text-sm text-ax-subtle/60 mt-8 flex items-center justify-center gap-2">
             <ShieldCheck className="w-4 h-4 text-ax-blue shrink-0" />
-            발명자 중심의 특허 출원을 통해 법적 안정성과 AI 효율성을 동시에 확보합니다.
+            AI 사용 과정에서도 발명자 기여와 검토 이력을 남겨 발명자 이슈를 해결합니다.
           </p>
         </motion.div>
       </div>

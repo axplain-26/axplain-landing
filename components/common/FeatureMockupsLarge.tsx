@@ -226,6 +226,92 @@ export function LargeMockupSearch() {
   );
 }
 
+export function LargeMockupUnifiedSearch() {
+  const techTerms = [
+    { text: "열처리 온도 균일성 향상", match: "94%" },
+    { text: "산화막 두께 제어 기법", match: "91%" },
+    { text: "반도체 소자 열저항 분석", match: "88%" },
+  ];
+  const claimTerms = [
+    { text: "제1항) 열처리 장치에 있어서, 상기 온도 제어부는...", color: "text-ax-accent" },
+    { text: "제2항) 상기 열분산 패널 구조를 포함하는...", color: "text-ax-accent/70" },
+    { text: "제3항) 청구항 1에 있어서, 상기 챔버는...", color: "text-ax-accent/50" },
+  ];
+
+  return (
+    <div className="relative w-full max-w-[520px] aspect-[4/3] rounded-2xl overflow-hidden bg-ax-surface border border-white/[0.08] p-4 flex flex-col gap-3">
+      {/* toolbar */}
+      <div className="flex items-center gap-2 pb-2 border-b border-white/[0.06]">
+        <div className="flex gap-1.5">
+          {["bg-red-500/50","bg-yellow-500/50","bg-green-500/50"].map(c=>(
+            <div key={c} className={`w-2.5 h-2.5 rounded-full ${c}`}/>
+          ))}
+        </div>
+        <div className="flex gap-1 ml-3">
+          {["기술 언어","권리 언어"].map((t,i)=>(
+            <div key={t} className={`h-5 px-3 rounded-t text-[9px] font-semibold flex items-center ${i===0?"bg-blue-500/20 text-blue-400":"bg-ax-accent/15 text-ax-accent"}`}>{t}</div>
+          ))}
+        </div>
+        <div className="ml-auto flex items-center gap-1">
+          <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"/>
+          <span className="text-[8px] text-green-400 font-semibold">AI 매핑 중</span>
+        </div>
+      </div>
+
+      <div className="flex-1 flex gap-2 min-h-0">
+        {/* Left: Tech language (논문) */}
+        <div className="flex-1 flex flex-col gap-1.5 min-w-0">
+          <div className="text-[8px] font-bold text-blue-400 uppercase tracking-wider mb-0.5">논문 기술 언어</div>
+          {techTerms.map((t, i) => (
+            <div key={i} className="flex items-center gap-1.5 bg-blue-500/[0.06] rounded-lg px-2 py-2 border border-blue-500/15">
+              <div className="w-1.5 h-1.5 rounded-full bg-blue-400/60 shrink-0"/>
+              <span className="text-[8px] text-ax-muted flex-1 leading-tight">{t.text}</span>
+              <span className="text-[8px] font-bold text-blue-400 shrink-0">{t.match}</span>
+            </div>
+          ))}
+          <div className="mt-auto pt-1 border-t border-white/[0.05]">
+            <div className="text-[7px] text-ax-subtle/40 text-center">논문 DB 검색 결과</div>
+          </div>
+        </div>
+
+        {/* Center: AI bridge */}
+        <div className="flex flex-col items-center justify-center gap-1.5 shrink-0 w-9">
+          <div className="w-px flex-1 bg-gradient-to-b from-blue-500/20 to-ax-primary/30"/>
+          <div className="w-8 h-8 rounded-full bg-ax-primary/15 border border-ax-primary/40 flex items-center justify-center shrink-0">
+            <span className="text-[7px] text-ax-blue font-extrabold">AI</span>
+          </div>
+          <svg className="w-3.5 h-3 shrink-0" viewBox="0 0 14 10" fill="none">
+            <path d="M0 5h10M7 1.5l4 3.5-4 3.5" stroke="#6366F1" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <div className="w-px flex-1 bg-gradient-to-b from-ax-primary/30 to-ax-accent/20"/>
+        </div>
+
+        {/* Right: Patent claim language */}
+        <div className="flex-1 flex flex-col gap-1.5 min-w-0">
+          <div className="text-[8px] font-bold text-ax-accent uppercase tracking-wider mb-0.5">특허 권리 언어</div>
+          {claimTerms.map((t, i) => (
+            <div key={i} className="bg-ax-accent/[0.06] rounded-lg px-2 py-2 border border-ax-accent/15">
+              <span className={`text-[8px] leading-tight ${t.color} line-clamp-2`}>{t.text}</span>
+            </div>
+          ))}
+          <div className="mt-auto pt-1 border-t border-white/[0.05]">
+            <div className="text-[7px] text-ax-subtle/40 text-center">청구항 자동 생성</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom: Result */}
+      <div className="flex items-center justify-between pt-1 border-t border-white/[0.06]">
+        <div className="flex items-center gap-1">
+          <div className="w-1.5 h-1.5 rounded-full bg-green-400"/>
+          <span className="text-[8px] text-green-400 font-semibold">단일 검색 흐름 연결 완료</span>
+        </div>
+        <span className="text-[8px] text-ax-subtle/40">3건 → 청구항 자동 변환</span>
+      </div>
+    </div>
+  );
+}
+
 export function LargeMockupFiling() {
   const steps = [
     { label: "HLT 변환", done: true },

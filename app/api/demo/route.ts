@@ -3,7 +3,7 @@ import { Resend } from "resend";
 
 export const dynamic = "force-dynamic";
 
-const RECIPIENTS = ["sss74@axplain.ai", "yjchoi@axplain.ai"];
+const RECIPIENTS = ["service@axplain.ai", "yjchoi@axplain.ai"];
 
 export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
@@ -22,8 +22,8 @@ export async function POST(request: Request) {
         <!-- Header -->
         <tr>
           <td style="background:linear-gradient(135deg,#003A8C,#004AAD,#1E6FE0);padding:28px 32px;">
-            <p style="margin:0;color:#ffffff;font-size:22px;font-weight:700;">AXPlain 데모 신청</p>
-            <p style="margin:4px 0 0;color:rgba(255,255,255,0.75);font-size:13px;">새로운 데모 신청이 접수되었습니다</p>
+            <p style="margin:0;color:#ffffff;font-size:22px;font-weight:700;">AXPlain 도입상담신청</p>
+            <p style="margin:4px 0 0;color:rgba(255,255,255,0.75);font-size:13px;">새로운 도입상담 신청이 접수되었습니다</p>
           </td>
         </tr>
         <!-- Body -->
@@ -59,7 +59,7 @@ export async function POST(request: Request) {
       from: "AXPlain 데모 신청 <noreply@axplain.ai>",
       to: RECIPIENTS,
       replyTo: data.email,
-      subject: `[데모 신청] ${data.company} · ${data.name}`,
+      subject: `[도입상담신청] ${data.company} · ${data.name}`,
       html,
     });
 

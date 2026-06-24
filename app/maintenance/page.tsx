@@ -14,8 +14,8 @@ export default function MaintenancePage() {
       </p>
       <p className="mt-8 text-sm text-gray-400">
         문의:{" "}
-        <a href="mailto:sss74@axplain.ai" className="underline">
-          sss74@axplain.ai
+        <a href="mailto:service@axplain.ai" className="underline">
+          service@axplain.ai
         </a>
       </p>
     </div>

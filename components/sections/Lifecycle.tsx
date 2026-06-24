@@ -134,23 +134,6 @@ export default function Lifecycle() {
           })}
         </div>
 
-        {/* Bottom effect badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: EASE, delay: 0.6 }}
-          className="mt-16 flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <div className="flex items-center gap-3 px-6 py-3 rounded-2xl glass border border-green-500/20 bg-green-500/5">
-            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-sm font-semibold text-green-400">연구원 업무 효율 향상 ↑</span>
-          </div>
-          <div className="flex items-center gap-3 px-6 py-3 rounded-2xl glass border border-ax-blue/20 bg-ax-blue/5">
-            <div className="w-2 h-2 rounded-full bg-ax-blue animate-pulse" />
-            <span className="text-sm font-semibold text-ax-blue">특허 대리인 수수료 절감 ↓</span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

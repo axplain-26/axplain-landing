@@ -156,19 +156,19 @@ export default function BookDemoPage() {
             {/* Badge */}
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-ax-primary/10 text-ax-accent border border-ax-primary/20 w-fit">
               <span className="w-1.5 h-1.5 rounded-full bg-ax-accent animate-pulse" />
-              DEMO
+              CONSULTATION
             </span>
 
             {/* Headline */}
             <h1 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-extrabold tracking-tight leading-tight text-ax-text">
               AXPlain으로{" "}
-              <span className="text-gradient">수수료 절감, 업무 효율 향상</span>을
+              <span className="text-gradient">특허 업무의 AI 전환</span>을
               <br />
-              직접 경험하세요.
+              지금 시작하세요.
             </h1>
 
             <p className="text-ax-subtle leading-relaxed">
-              직무발명서 작성부터 선행기술조사, 명세서 작성, 도면 생성, 특허청 출원까지 — 원하는 서비스를 경험해보세요.
+              직무발명서 작성부터 선행기술조사, 명세서 작성, 도면 생성까지 — 도입 상담을 통해 맞춤 안내를 받아보세요.
             </p>
 
           </motion.div>
@@ -215,7 +215,7 @@ export default function BookDemoPage() {
                 /* ── Form ── */
                 <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
                   <div className="mb-1">
-                    <h2 className="text-xl font-bold text-ax-text">데모 신청하기</h2>
+                    <h2 className="text-xl font-bold text-ax-text">도입상담신청</h2>
                     <p className="text-sm text-ax-subtle mt-1">
                       <span className="text-ax-accent">*</span> 필수 항목
                     </p>
@@ -335,7 +335,7 @@ export default function BookDemoPage() {
                       </div>
                       <span className="text-sm text-ax-subtle leading-relaxed">
                         <span className="text-ax-accent mr-1">*</span>
-                        개인정보 수집·이용에 동의합니다. 수집된 정보는 데모 일정 조율 및
+                        개인정보 수집·이용에 동의합니다. 수집된 정보는 도입 상담 및
                         서비스 안내 목적으로만 사용되며, 제3자에게 제공되지 않습니다.
                       </span>
                     </label>
@@ -358,7 +358,7 @@ export default function BookDemoPage() {
                         신청 중...
                       </>
                     ) : (
-                      "데모 신청"
+                      "상담 신청"
                     )}
                   </button>
                   {submitError && (

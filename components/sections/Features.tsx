@@ -8,16 +8,18 @@ import {
   LargeMockupDrawing,
   LargeMockupReport,
   LargeMockupSearch,
+  LargeMockupUnifiedSearch,
   LargeMockupFiling,
 } from "@/components/common/FeatureMockupsLarge";
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-const mockups = [LargeMockupDrawing, LargeMockupReport, LargeMockupSearch, LargeMockupFiling];
+const mockups = [LargeMockupDrawing, LargeMockupReport, LargeMockupSearch, LargeMockupUnifiedSearch, LargeMockupFiling];
 
 const accentColors = [
   "text-blue-400",
   "text-blue-400",
+  "text-ax-accent",
   "text-ax-accent",
   "text-blue-400",
 ];

@@ -23,13 +23,6 @@ const iconColors = [
   "text-sky-400 bg-sky-500/10 border-sky-500/20",
 ];
 
-// Decorative stat badges shown above the grid
-const TRUST_STATS = [
-  { value: "ISO 27001", label: "인증" },
-  { value: "AI 학습 차단", label: "재학습 원천 차단" },
-  { value: "RBAC",    label: "접근 제어" },
-  { value: "99.9%",   label: "서비스 가동률" },
-];
 
 export default function Security() {
   return (
@@ -59,25 +52,6 @@ export default function Security() {
             <span className="text-gradient">{security.titleGradient}</span>
           </h2>
           <p className="mt-4 text-ax-subtle max-w-xl mx-auto">{security.description}</p>
-        </motion.div>
-
-        {/* Trust stats strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55, ease: EASE, delay: 0.1 }}
-          className="flex flex-wrap justify-center gap-3 mb-14"
-        >
-          {TRUST_STATS.map((s) => (
-            <div
-              key={s.label}
-              className="flex items-center gap-3 px-5 py-2.5 rounded-full glass border border-white/[0.08]"
-            >
-              <span className="text-sm font-extrabold text-gradient">{s.value}</span>
-              <span className="text-xs text-ax-subtle/60">{s.label}</span>
-            </div>
-          ))}
         </motion.div>
 
         {/* 2×2 card grid */}

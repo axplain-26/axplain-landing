@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "AXPlain",
   tagline: "AI 기반 특허 자동화 솔루션",
   description:
-    "직무발명서 작성부터 도면 변환, 명세서 작성, 특허청 출원까지 — 시간과 수수료 낭비 없이 정확하고 편리하게 지원하는 원스톱 AI 서비스",
+    "직무발명서 작성부터 도면 변환, 명세서 작성까지 — 시간과 수수료 낭비 없이 정확하고 편리하게 지원하는 원스톱 AI 서비스",
   url: "https://axplain.ai", // 배포 후 실제 도메인 확인
   ogImage: "/og-image.png",
 };
@@ -16,18 +16,18 @@ export const nav = {
     { label: "차별성", href: "#lifecycle" },
     { label: "회사 소개", href: "#trust" },
   ],
-  cta: { label: "데모 신청", href: "/book-demo" },
+  cta: { label: "도입상담신청", href: "/book-demo" },
 };
 
 export const hero = {
   badge: "AI 특허 자동화 솔루션",
   headline: "발명부터 출원까지,",
-  headlineGradient: "AI가 끝까지.",
-  subheadline: "대리인 중심에서 발명자 중심으로.",
+  headlineGradient: "특허업무를 하나의 AI 워크플로우로",
+  subheadline: "",
   description:
-    "직무발명서 작성부터 도면 변환, 명세서 작성, 특허청 출원까지 — 시간과 수수료 낭비 없이 정확하고 편리하게 지원하는 원스톱 AI 서비스",
+    "직무발명서 작성부터 도면 변환, 명세서 작성까지 — 시간과 수수료 낭비 없이 정확하고 편리하게 지원하는 원스톱 AI 서비스",
   cta: {
-    primary: { label: "데모 신청", href: "/book-demo" },
+    primary: { label: "도입상담신청", href: "/book-demo" },
     secondary: { label: "서비스 둘러보기", href: "#service" },
   },
   stats: [
@@ -41,7 +41,7 @@ export const trustBanner = {
   headline: "국내 유일 표절검사, 디텍트 GPT 기술을 보유한 (주)무하유와 함께합니다",
   description: "카피킬러 논문 DB 연동 · KIPRIS · WIPO · USPTO · EPO · JPO 특허 DB 통합",
   stats: [
-    { value: "100억+", label: "논문 건수" },
+    { value: "국내 최대", label: "논문·특허 통합 DB 보유" },
     { value: "1억+", label: "글로벌 특허 DB" },
     { value: "3,000+", label: "파트너 기관" },
   ],
@@ -86,7 +86,7 @@ export const needs = {
       label: "특허 중심 데이터",
       title: "논문 + 특허 통합 DB",
       pain: "논문 DB와 특허 DB가 분리되어 별도 검색 필요, 특허 DB 검색식 설계 장벽 존재, 논문 검색 플랫폼과의 단절",
-      solution: "100억 건 논문 DB + 1억 건 글로벌 특허 DB 통합 제공",
+      solution: "국내 최대 논문 DB + 글로벌 특허 DB 통합 제공",
     },
     {
       id: "specification",
@@ -94,7 +94,7 @@ export const needs = {
       label: "까다로운 명세서 작성",
       title: "고품질 명세서 작성 & 출원",
       pain: "변리사가 발명 내용을 전달받아 명세서 형식에 맞춰 작성, 필드별 작성 노하우 필요, 특허청 출원용 파일 형식 전환 필요",
-      solution: "청구범위·명세서 초안 자동 생성부터 특허청 전자 출원까지 원스톱 처리",
+      solution: "청구범위·명세서 초안 자동 생성 및 특허청 표준 형식 변환 원스톱 처리",
     },
   ],
 };
@@ -138,9 +138,9 @@ export const features = {
       label: "Paper Search",
       title: "논문 + 특허 통합 DB",
       description:
-        "카피킬러의 논문 100억 건 데이터와 국내외 주요 특허 DB를 단일 플랫폼에서 동시에 검색합니다. 검색 결과를 특허 문헌으로 자동 변환하여 명세서 작성에 바로 활용합니다.",
+        "국내 최대 규모의 논문 DB와 국내외 주요 특허 DB를 단일 플랫폼에서 동시에 검색합니다. 검색 결과를 특허 문헌으로 자동 변환하여 명세서 작성에 바로 활용합니다.",
       bullets: [
-        "카피킬러 100억 건 논문 DB 연동",
+        "국내 최대 논문 DB 연동 (카피킬러 제공)",
         "글로벌 특허 DB(KIPRIS · WIPO · USPTO · EPO · JPO 등) 통합 검색",
         "검색 결과 → 특허 문헌 자동 변환",
       ],
@@ -148,18 +148,32 @@ export const features = {
       mockupLines: ["Academic DB", "Patent DB", "Auto Convert"],
     },
     {
-      id: "filing",
-      label: "Online Filing",
-      title: "특허청 전자 출원 연동",
+      id: "unified-search",
+      label: "Unified Search Flow",
+      title: "기술 언어와 권리 언어를 하나의 검색 흐름으로",
       description:
-        "완성된 명세서를 특허청 제출 표준 형식(HLT 등)으로 자동 변환합니다. 특허청 API와 연동하여 1-Click으로 직접 출원하고, 출원번호와 통지서를 자동으로 관리합니다.",
+        "논문의 기술 언어와 특허의 권리 언어를 하나의 검색 흐름으로 연결합니다. 학술 연구 결과물이 자연스럽게 특허 문헌으로 이어지도록 두 언어 체계를 단일 플랫폼에서 통합합니다.",
+      bullets: [
+        "기술 용어(논문) → 청구항 언어(특허) 자동 매핑",
+        "학술 검색어를 특허 권리 언어로 자동 재해석",
+        "논문 레퍼런스를 선행기술 인용으로 바로 연결",
+      ],
+      mockupTitle: "Language Bridge",
+      mockupLines: ["Tech Language", "IP Language", "Auto Convert"],
+    },
+    {
+      id: "filing",
+      label: "Standard Format",
+      title: "특허청 표준 형식 변환",
+      description:
+        "완성된 명세서를 특허청 제출 표준 형식(HLT 등)으로 자동 변환합니다. 출원에 필요한 모든 문서를 정확한 형식으로 준비하여 출원 준비를 완료합니다.",
       bullets: [
         "HLT 등 특허청 제출 표준 확장자 자동 변환",
-        "특허청 API 연동 1-Click 직접 출원",
-        "출원번호·통지서 자동 관리 대시보드",
+        "출원 문서 품질 검토 및 형식 오류 자동 보정",
+        "출원 준비 완료 문서 패키지 생성",
       ],
-      mockupTitle: "E-Filing Portal",
-      mockupLines: ["Format Convert", "1-Click Filing", "Status Tracking"],
+      mockupTitle: "Format Converter",
+      mockupLines: ["Format Convert", "Quality Check", "Package Ready"],
     },
   ],
 };
@@ -167,8 +181,8 @@ export const features = {
 export const lifecycle = {
   sectionLabel: "Full Lifecycle",
   title: "아이디어부터 출원까지,",
-  titleGradient: "6단계 완전 자동화",
-  description: "특허 출원 전 과정(Life Cycle)을 단계별로 자동화하여 완전한 AI Transformation을 구현합니다.",
+  titleGradient: "AI가 지원하는 6단계 통합 워크플로우",
+  description: "특허 출원 전 과정(Life Cycle)을 AI가 단계별로 지원하여 발명자 중심의 출원 프로세스를 구현합니다.",
   steps: [
     {
       step: "01",
@@ -212,9 +226,9 @@ export const lifecycle = {
 export const legal = {
   sectionLabel: "Legal Safety",
   title: "AI 시대, 발명자 중심 출원으로",
-  titleGradient: "법적 리스크까지 해결",
+  titleGradient: "발명 이력을 남기는 프로세스",
   description:
-    "발명자 인터뷰를 기반으로 안정적인 발명자 적격성을 확보하여 AI 활용에 의한 법적 리스크를 해결합니다.",
+    "AI 사용 과정에서도 발명자 기여와 검토 이력을 남기는 특허 출원 워크플로우로 발명자 이슈를 해결합니다.",
   risks: [
     {
       title: "특허법 제33조 위반 소지",
@@ -292,8 +306,8 @@ export const security = {
 export const cta = {
   title: "특허 업무의 AI 전환,",
   titleGradient: "지금 시작하세요.",
-  description: "발명자 중심의 원스톱 특허 자동화 플랫폼 — 데모를 신청하고 직접 경험해보세요.",
-  button: { label: "데모 신청하기", href: "/book-demo" },
+  description: "발명자 중심의 원스톱 특허 자동화 플랫폼 — 도입 상담을 신청하고 직접 경험해보세요.",
+  button: { label: "도입상담신청", href: "/book-demo" },
   secondaryButton: { label: "자세히 알아보기", href: "#features" },
 };
 
@@ -311,6 +325,6 @@ export const footer = {
     { label: "개인정보처리방침", href: "/privacy" },
     { label: "이용약관", href: "/terms" },
   ],
-  contact: "sss74@axplain.ai",
+  contact: "service@axplain.ai",
   partnership: "",
 };
