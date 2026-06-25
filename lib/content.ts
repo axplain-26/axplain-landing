@@ -314,7 +314,7 @@ export const cta = {
 export const footer = {
   name: "AXPlain",
   tagline: "AI 기반 특허 자동화 솔루션",
-  copyright: "© 2026 AXPlain. All rights reserved.",
+  copyright: "Copyright ⓒ 2026 AXPlain All Rights Reserved",
   links: [
     { label: "서비스", href: "#service" },
     { label: "핵심 기능", href: "#features" },
