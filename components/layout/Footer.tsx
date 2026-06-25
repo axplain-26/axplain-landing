@@ -44,12 +44,30 @@ export default function Footer() {
             </h4>
             <a
               href={`mailto:${footer.contact}`}
-              className="flex items-center gap-2 text-sm text-ax-muted hover:text-ax-text transition-colors"
+              className="flex items-center gap-2 text-sm text-ax-muted hover:text-ax-text transition-colors mb-5"
             >
               <Mail className="w-4 h-4" />
               {footer.contact}
             </a>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <dl className="flex flex-col gap-1.5 text-xs text-ax-subtle/70">
+              <div className="flex gap-2">
+                <dt className="shrink-0 text-ax-subtle/50">상호명</dt>
+                <dd>주식회사 액스플레인</dd>
+              </div>
+              <div className="flex gap-2">
+                <dt className="shrink-0 text-ax-subtle/50">대표자</dt>
+                <dd>소승섭</dd>
+              </div>
+              <div className="flex gap-2">
+                <dt className="shrink-0 text-ax-subtle/50">사업자등록번호</dt>
+                <dd>772-86-03805</dd>
+              </div>
+              <div className="flex gap-2">
+                <dt className="shrink-0 text-ax-subtle/50">주소</dt>
+                <dd className="leading-relaxed">서울특별시 서초구 바우뫼로37길 30, 2층<br />(양재동, 위메스 빌딩)</dd>
+              </div>
+            </dl>
+            <div className="mt-5 flex flex-wrap gap-3">
               {footer.legal.map((item) => (
                 <a
                   key={item.href}
