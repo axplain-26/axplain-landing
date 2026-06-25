@@ -65,10 +65,6 @@ export default function Footer() {
 
         <div className="mt-10 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-ax-subtle/60">{footer.copyright}</p>
-          <div className="flex items-center gap-1 text-xs text-ax-subtle/40">
-            <span>Powered by</span>
-            <span className="text-gradient font-semibold">Claude AI</span>
-          </div>
         </div>
       </div>
     </footer>
